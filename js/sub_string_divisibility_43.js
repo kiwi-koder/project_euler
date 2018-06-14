@@ -19,3 +19,21 @@ function permut(string) {
     }
     return permutations;
 }
+
+const allPanDigital = permut("0123456789");
+
+let sum = 0;
+
+for (panDigital of allPanDigital) {
+    if (parseInt(panDigital.slice(1, 4)) % 2 !== 0) continue;
+    if (parseInt(panDigital.slice(2, 5)) % 3 !== 0) continue;
+    if (parseInt(panDigital.slice(3, 6)) % 5 !== 0) continue;
+    if (parseInt(panDigital.slice(4, 7)) % 7 !== 0) continue;
+    if (parseInt(panDigital.slice(5, 8)) % 11 !== 0) continue;
+    if (parseInt(panDigital.slice(6, 9)) % 13 !== 0) continue;
+    if (parseInt(panDigital.slice(7, 10)) % 17 !== 0) continue;
+
+    sum += parseInt(panDigital);
+}
+
+console.log(sum);
