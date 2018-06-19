@@ -9,8 +9,8 @@ const quadratic = (a, b, n) => n ** 2 + a * n + b;
 let maxA = 0;
 let maxB = 0;
 let maxN = 0;
-for (let a = -9999; a < 9999; a++) {
-    for (let b = -9999; b < 9999; b++) {
+for (let a = -999; a < 999; a++) {
+    for (let b = -999; b < 999; b++) {
         let n = 0;
         while (isPrime(quadratic(a, b, n))) {
             n++;
@@ -22,7 +22,5 @@ for (let a = -9999; a < 9999; a++) {
         }
     }
 }
-
-console.log(isPrime(-4));
 
 console.log({ maxA, maxB, maxN, AtimesB: maxA * maxB });
