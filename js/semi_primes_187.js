@@ -119,3 +119,10 @@ while (front <= back) {
 
 console.log(semiCount);
 console.timeEnd("Time");
+// const num = 10 ** 8;
+// console.time("Fast");
+// getPrimes(num);
+// console.timeEnd("Fast");
+// console.time("Slow");
+// generatePrimes(num);
+// console.timeEnd("Slow");
