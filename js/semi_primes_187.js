@@ -100,10 +100,22 @@ const getPrimes = n => {
     }
     return primes;
 };
-const maxNum = 10 ** 6;
+
 console.time("Time");
-console.log(getPrimes(maxNum).length);
+const maxNum = 10 ** 8;
+const primes = getPrimes(maxNum / 2);
+let semiCount = 0;
+let front = 0;
+let back = primes.length - 1;
+
+while (front <= back) {
+    if (primes[front] * primes[back] < maxNum) {
+        semiCount += back - front + 1;
+        front++;
+    } else {
+        back--;
+    }
+}
+
+console.log(semiCount);
 console.timeEnd("Time");
-console.time("Slow");
-console.log(generatePrimes(maxNum).length);
-console.timeEnd("Slow");
