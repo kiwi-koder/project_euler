@@ -81,6 +81,29 @@ const markObject = obj => {
 // const getPrimes = num => {
 //     let arr = new Array(num);
 // };
+
+const getPrimes = n => {
+    let arr = new Array(n).fill(true);
+    for (let i = 2; i < Math.sqrt(n); i++) {
+        if (arr[i]) {
+            let j = i ** 2;
+            while (j < n) {
+                arr[j] = false;
+                j += i;
+            }
+        }
+    }
+    let primes = [];
+
+    for (let i = 2; i < arr.length; i++) {
+        if (arr[i]) primes.push(i);
+    }
+    return primes;
+};
+const maxNum = 10 ** 6;
 console.time("Time");
-console.log(markObject(makeObject(10 ** 5)));
+console.log(getPrimes(maxNum).length);
 console.timeEnd("Time");
+console.time("Slow");
+console.log(generatePrimes(maxNum).length);
+console.timeEnd("Slow");
