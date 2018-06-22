@@ -13,3 +13,4 @@ while (true) {
     }
     num++;
 }
+//Add the digits up once the loop stops printing
