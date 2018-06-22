@@ -7,12 +7,11 @@ const isPrime = num => {
 const getPrimeFactors = (x, acc = {}) => {
     for (let i = 2; i <= x; i++) {
         if (x % i === 0) {
-            return getPrimeFactors(x / i, { ...acc, [i]: 1 });
-            // if (acc[i] === undefined) {
-            //     return getPrimeFactors(x / i, { ...acc, [i]: 1 });
-            // } else {
-            //     return getPrimeFactors(x / i, { ...acc, [i]: acc[i] + 1 });
-            // }
+            if (acc[i] === undefined) {
+                return getPrimeFactors(x / i, { ...acc, [i]: 1 });
+            } else {
+                return getPrimeFactors(x / i, { ...acc, [i]: acc[i] + 1 });
+            }
         }
     }
     return acc;
